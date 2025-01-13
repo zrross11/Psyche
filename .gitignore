@@ -1,0 +1,47 @@
+### macOS ###
+.DS_Store
+.AppleDouble
+.LSOverride
+*.icloud
+._*
+
+### Rust ###
+debug/
+target/
+**/*.rs.bk
+*.pdb
+.cargo/
+
+### Python ###
+__pycache__
+
+### Windows ###
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+[Dd]esktop.ini
+
+### Tooling ###
+result
+nix-results/
+.direnv/
+.aider*
+flamegraph.svg
+perf.data
+perf.data.*
+.vscode/
+.venv/
+libtorch*
+slurm*
+
+### Data folders ###
+/data
+/distro-data
+checkpoints/
+logs/
+txt/
+config/testing/dolma/
+
+### Solana ###
+test-ledger

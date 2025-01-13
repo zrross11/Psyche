@@ -1,0 +1,29 @@
+[package]
+name = "psyche-modeling"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tch.workspace = true
+torch-sys.workspace = true
+rand.workspace = true
+anyhow.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+memmap2.workspace = true
+tokenizers.workspace = true
+tracing.workspace = true
+byteorder = "1.4.3"
+safetensors = "0.3.0"
+thiserror.workspace = true
+
+# for examples
+[dev-dependencies]
+clap.workspace = true
+psyche-core.workspace = true
+psyche-data-provider.workspace = true
+itertools = "0.14"
+
+[features]
+parallelism = ["tch/nccl", "torch-sys/nccl"]
+

@@ -1,0 +1,60 @@
+[workspace]
+members = ["shared/*"]
+resolver = "2"
+
+[workspace.metadata.crane]
+name = "psyche-workspace"
+
+[workspace.package]
+version = "0.0.1"
+
+[workspace.dependencies]
+psyche-core = { path = "./shared/core" }
+psyche-data-provider = { path = "./shared/data-provider" }
+psyche-eval = { path = "./shared/eval" }
+psyche-modeling = { path = "./shared/modeling" }
+
+
+hf-hub = { git = "https://github.com/NousResearch/hf-hub.git", rev = "269dc3df4e194f9071ddbdbd25ed90d4990f9262" }
+tokio = { version = "1", features = [
+    "io-util",
+    "rt",
+    "rt-multi-thread",
+    "net",
+    "macros",
+    "time",
+] }
+tokio-stream = "0.1"
+tokio-util = "0.7.12"
+anyhow = "1.0.86"
+clap = { version = "4.5.16", features = ["derive", "env"] }
+serde = { version = "1.0.209", features = ["derive"] }
+serde_json = "1.0.28"
+tracing = { version = "0.1.40", features = ["std"] }
+rand = "0.8.5"
+rand_chacha = "0.3.1"
+sha2 = "0.10.8"
+futures = "0.3.30"
+futures-util = "0.3.30"
+async-trait = "0.1.82"
+memmap2 = { version = "0.9.3", features = ["stable_deref_trait"] }
+indicatif = "0.17.5"
+tokenizers = { version = "0.20.0", default-features = false, features = [
+    "onig",
+] }
+tch = { git = "https://github.com/jquesnelle/tch-rs.git", rev = "e8b64d8dedccbc0092ad43b49a01a5355f0feee7" }
+torch-sys = { git = "https://github.com/jquesnelle/tch-rs.git", rev = "e8b64d8dedccbc0092ad43b49a01a5355f0feee7" }
+# tch = { path = "../tch-rs" }
+# torch-sys = { path = "../tch-rs/torch-sys" }
+time = { version = "0.3.36", features = ["formatting", "macros"] }
+thiserror = "2.0.3"
+toml = "0.8.19"
+
+
+# dev only
+test-log = "0.2.16"
+pretty_assertions = "1.4.1"
+
+
+[profile.release]
+debug = false

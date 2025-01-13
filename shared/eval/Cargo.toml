@@ -1,0 +1,22 @@
+[package]
+name = "psyche-eval"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+psyche-core.workspace = true
+psyche-data-provider.workspace = true
+psyche-modeling.workspace = true
+anyhow.workspace = true
+rand.workspace = true
+rand_chacha.workspace = true
+indicatif.workspace = true
+tokenizers.workspace = true
+tch.workspace = true
+tracing.workspace = true
+regex = "1.5"
+tokio-util.workspace = true
+
+# for examples
+[dev-dependencies]
+clap = { workspace = true }

@@ -1,0 +1,30 @@
+[package]
+name = "psyche-data-provider"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+psyche-core.workspace = true
+hf-hub.workspace = true
+parquet = "51.0.0"
+tokio.workspace = true
+async-trait.workspace = true
+tracing.workspace = true
+anyhow.workspace = true
+memmap2.workspace = true
+rand_chacha.workspace = true
+rand.workspace = true
+tokio-util.workspace = true
+futures.workspace = true
+serde.workspace = true
+thiserror.workspace = true
+reqwest = "0.12.12"
+regex = "1.11.1"
+
+[dev-dependencies]
+tokenizers.workspace = true
+pretty_assertions.workspace = true
+test-log.workspace = true
+clap.workspace = true
+tempfile = "3.15.0"
+static-web-server = { git = "https://github.com/arilotter/static-web-server", rev = "c91445427b56c5ddff0365d8ec116e3b567377ac" } # forked to add a channel for getting the port
