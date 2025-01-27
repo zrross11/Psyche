@@ -70,8 +70,8 @@ sudo apt install nvidia-cuda-toolkit
 
 ```bash
 wget https://download.pytorch.org/libtorch/cu124/libtorch-cxx11-abi-shared-with-deps-2.4.1%2Bcu124.zip
-unzip libtorch-cxx11-abi-shared-with-deps-2.4.1%2Bcu124.zip
-rm libtorch-cxx11-abi-shared-with-deps-2.4.1%2Bcu124.zip
+unzip libtorch-cxx11-abi-shared-with-deps-2.4.1+cu124.zip
+rm libtorch-cxx11-abi-shared-with-deps-2.4.1+cu124.zip
 ```
 
 4. In the `.bashrc` file, set the following libtorch environment variables. Here `<path_to_libtorch>` is the absolute path
