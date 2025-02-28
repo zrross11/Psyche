@@ -47,10 +47,11 @@ RUN git clone https://github.com/zrross11/Psyche.git
 # Set working directory and dataset directory before building
 WORKDIR /app/Psyche
 RUN mkdir -p ./data/finetune-10bt/
+VOLUME ["/app/Psyche/data/finetune-10bt"]
 RUN cargo build --release
 
 # Set ENTRYPOINT to the default command
-ENTRYPOINT ["cargo", "run"]
+ENTRYPOINT ["sh", "-c", "if [ -z \"$(ls -A /app/Psyche/data/finetune-10bt)\" ]; then wget -O /app/data/00002_00001_shuffled.ds https://huggingface.co/datasets/emozilla/fineweb-10bt-tokenized-datatrove-llama2/resolve/main/00002_00001_shuffled.ds; fi && exec $0"]
 
 # Default command to run training
-CMD ["--example", "train", "--", "--model", "emozilla/llama2-20m-init", "--data-path", "./data/finetune-10bt/", "--total-batch", "2", "--micro-batch", "1"]
+CMD ["cargo", "run", "--example", "train", "--", "--model", "emozilla/llama2-20m-init", "--data-path", "./data/finetune-10bt/", "--total-batch", "2", "--micro-batch", "1"]
