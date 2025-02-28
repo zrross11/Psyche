@@ -47,10 +47,15 @@ RUN git clone https://github.com/zrross11/Psyche.git
 # Set working directory and dataset directory before building
 WORKDIR /app/Psyche
 RUN mkdir -p ./data/finetune-10bt/
+VOLUME ["/app/Psyche/data/finetune-10bt"]
 RUN cargo build --release
 
-# Set ENTRYPOINT to the default command
-ENTRYPOINT ["cargo", "run"]
+# Copy the entrypoint script and set executable permissions
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+# Set the entrypoint script
+ENTRYPOINT ["/entrypoint.sh"]
 
 # Default command to run training
-CMD ["--example", "train", "--", "--model", "emozilla/llama2-20m-init", "--data-path", "./data/finetune-10bt/", "--total-batch", "2", "--micro-batch", "1"]
+CMD ["cargo", "run", "--example", "train", "--", "--model", "emozilla/llama2-20m-init", "--data-path", "./data/finetune-10bt/", "--total-batch", "2", "--micro-batch", "1"]
